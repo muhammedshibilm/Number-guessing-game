@@ -34,7 +34,6 @@ function begin() {
 
 function startGame() {
     let guessNumber = num.value;
-    console.log(randomNumber)
         if (guessNumber > randomNumber) {
             guessAraary.push(guessNumber)
             lifeTime--;
