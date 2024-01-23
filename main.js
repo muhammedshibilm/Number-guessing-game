@@ -14,8 +14,11 @@ var resetButton = document.getElementById("resetButton");
 
 var guessAraary=[]
 
+// game mistake text
+var para;
 // var gameMode = true;
 var  lifeTime=10;
+
 var win=false;
 
 
@@ -37,6 +40,7 @@ function startGame() {
         if (guessNumber > randomNumber) {
             guessAraary.push(guessNumber)
             lifeTime--;
+            mistakeStatus.style.backgroundColor="red";
             console.log("life" +lifeTime)
             console.log(guessAraary)
             scoreBoard.textContent = `Previous ${guessAraary.join(" ")}`;
@@ -45,6 +49,7 @@ function startGame() {
         } else if (guessNumber < randomNumber) {
             guessAraary.push(guessNumber);
             lifeTime--;
+            mistakeStatus.style.backgroundColor="red";
             console.log("life" +lifeTime)
             console.log(guessAraary);
             scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
@@ -53,6 +58,7 @@ function startGame() {
         } else{
             guessAraary.push(guessNumber)
             console.log(guessAraary)
+            mistakeStatus.style.backgroundColor="green";
             scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
             mistakeStatus.textContent="Correct";
             win=true;
