@@ -1,16 +1,24 @@
-let randomNumber = Math.floor(Math.random()*100)+1;
+var randomNumber = Math.floor(Math.random()*100)+1;
 
-let guessNumber = document.getElementById("val");
+var num = document.getElementById("val");
 
-let button = document.getElementById("submit");
+var button = document.getElementById("submit");
 
-var   gameStatus = "Previous guesses:"
+var scoreBoard = document.getElementById("score"); 
+
+var mistakeStatus = document.getElementById("mistake");
+
+var runStatus =document.getElementById("run");
+
+var resetButton = document.getElementById("resetButton");
+
+var guessAraary=[]
 
 var gameMode = true;
 
 var win=false;
 
-var scores =[]
+
 button.addEventListener("click",begin)
 
 function begin() {
@@ -23,10 +31,33 @@ function begin() {
 }
 
 function startGame() {
-
+    let guessNumber = num.value;
+    console.log(guessNumber)
+    console.log(randomNumber)
     let lifeTime=10;
-    if (lifeTime != 0) {
+    if (lifeTime!=0) {
+    
+        if (guessNumber > randomNumber) {
         
+            guessAraary.push(guessNumber)
+            console.log(guessAraary)
+            scoreBoard.textContent = `Previous ${guessAraary.join(" ")}`;
+            mistakeStatus.textContent="Wrong!"
+            runStatus.textContent ="Last guess was too high!";
+        } else if (guessNumber < randomNumber) {
+            guessAraary.push(guessNumber)
+            console.log(guessAraary)
+            scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
+            mistakeStatus.textContent="Wrong!"
+            runStatus.textContent ="Last guess was too low!";
+        } else{
+            
+            guessAraary.push(guessNumber)
+            console.log(guessAraary)
+
+        }
+
+
     } else {
         gameMode=false;
     }
