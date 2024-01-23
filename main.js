@@ -2,7 +2,7 @@ var randomNumber = Math.floor(Math.random()*100)+1;
 
 var num = document.getElementById("val");
 
-var button = document.getElementById("submit");
+var startButton = document.getElementById("submit");
 
 var scoreBoard = document.getElementById("score"); 
 
@@ -21,7 +21,7 @@ var  lifeTime=10;
 var win=false;
 
 
-button.addEventListener("click",begin)
+startButton.addEventListener("click",begin)
 
 function begin() {
 
@@ -34,7 +34,7 @@ function begin() {
 
 function startGame() {
     let guessNumber = num.value;
-
+    console.log(randomNumber)
         if (guessNumber > randomNumber) {
             guessAraary.push(guessNumber)
             lifeTime--;
@@ -64,9 +64,13 @@ function endGame(params) {
         mistakeStatus.style.backgroundColor="green";
         scoreBoard.textContent = `Number of guesses: ${lifeTime}`;
         mistakeStatus.textContent="Your Win!"
+        startButton.removeEventListener("click",begin)
+        startButton.disabled = true;
      } else {
         scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
         mistakeStatus.textContent="Your loss!"
         runStatus.textContent="Your chances is finished"
+        startButton.removeEventListener("click",begin)
+        startButton.disabled = true;
      }
 }
