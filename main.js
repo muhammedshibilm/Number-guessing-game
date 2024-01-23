@@ -14,9 +14,7 @@ var resetButton = document.getElementById("resetButton");
 
 var guessAraary=[]
 
-// game mistake text
-var para;
-// var gameMode = true;
+
 var  lifeTime=10;
 
 var win=false;
@@ -35,14 +33,11 @@ function begin() {
 
 function startGame() {
     let guessNumber = num.value;
-    console.log(guessNumber)
-    console.log(randomNumber)
+
         if (guessNumber > randomNumber) {
             guessAraary.push(guessNumber)
             lifeTime--;
             mistakeStatus.style.backgroundColor="red";
-            console.log("life" +lifeTime)
-            console.log(guessAraary)
             scoreBoard.textContent = `Previous ${guessAraary.join(" ")}`;
             mistakeStatus.textContent="Wrong!"
             runStatus.textContent ="Last guess was too high!";
@@ -50,14 +45,11 @@ function startGame() {
             guessAraary.push(guessNumber);
             lifeTime--;
             mistakeStatus.style.backgroundColor="red";
-            console.log("life" +lifeTime)
-            console.log(guessAraary);
             scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
             mistakeStatus.textContent="Wrong!"
             runStatus.textContent ="Last guess was too low!";
         } else{
             guessAraary.push(guessNumber)
-            console.log(guessAraary)
             mistakeStatus.style.backgroundColor="green";
             scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
             mistakeStatus.textContent="Correct";
