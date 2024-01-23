@@ -10,7 +10,7 @@ var mistakeStatus = document.getElementById("mistake");
 
 var runStatus =document.getElementById("run");
 
-var resetButton = document.getElementById("resetButton");
+var resetButton = document.getElementById("reset");
 
 var guessAraary=[]
 
@@ -74,3 +74,8 @@ function endGame(params) {
         startButton.disabled = true;
      }
 }
+
+
+resetButton.addEventListener("click",()=>{
+     location.reload()
+})
