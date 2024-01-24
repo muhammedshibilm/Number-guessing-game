@@ -6,3 +6,7 @@ body{
     user-select: none;
 }
 
+img{
+    position: absolute;
+    z-index: -1;
+}

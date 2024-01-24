@@ -12,6 +12,7 @@ var runStatus =document.getElementById("run");
 
 var resetButton = document.getElementById("reset");
 
+
 var guessAraary=[]
 
 mistakeStatus.style.backgroundColor="red";
@@ -21,10 +22,17 @@ var  lifeTime=10;
 var win=false;
 
 
+function rainbowGif(){
+    let img = document.createElement("img")
+
+  img.setAttribute("src","./rainbow.gif")
+  document.body.appendChild(img)
+
+}
 startButton.addEventListener("click",begin)
 
 function begin() {
-
+    
     if (lifeTime != 0) {
         startGame()
     } else {
@@ -43,8 +51,7 @@ function startGame() {
             runStatus.textContent ="Last guess was too high!";
         } else if (guessNumber < randomNumber) {
             guessAraary.push(guessNumber);
-            lifeTime--;
-            
+            lifeTime--;  
             scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
             mistakeStatus.textContent="Wrong!"
             runStatus.textContent ="Last guess was too low!";
@@ -62,9 +69,13 @@ function endGame(params) {
      if (win == true) {
         mistakeStatus.style.backgroundColor="green";
         scoreBoard.textContent = `Number of guesses: ${lifeTime}`;
-        mistakeStatus.textContent="Your Win!"
+        mistakeStatus.textContent="Your Win!";
+        runStatus.textContent =null;
+        rainbowGif();
         startButton.removeEventListener("click",begin)
         startButton.disabled = true;
+        
+        
      } else {
         scoreBoard.textContent = `Previous: ${guessAraary.join(" ")}`;
         mistakeStatus.textContent="Your loss!"
