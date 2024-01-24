@@ -58,7 +58,6 @@ function startGame() {
         } else{
             guessAraary.push(guessNumber);
             win=true;
-            lifeTime=0;
             endGame();
 
         }
@@ -68,7 +67,7 @@ function startGame() {
 function endGame(params) {
      if (win == true) {
         mistakeStatus.style.backgroundColor="green";
-        scoreBoard.textContent = `Number of guesses: ${lifeTime}`;
+        scoreBoard.textContent = `Number of guesses: ${10-lifeTime}`;
         mistakeStatus.textContent="Your Win!";
         runStatus.textContent =null;
         rainbowGif();
