@@ -1,5 +1,6 @@
 var randomNumber = Math.floor(Math.random()*100)+1;
 
+
 var num = document.getElementById("val");
 
 var startButton = document.getElementById("submit");
@@ -15,8 +16,8 @@ var resetButton = document.getElementById("reset");
 
 var guessAraary=[]
 
-mistakeStatus.style.backgroundColor="red";
-
+mistakeStatus.style.color= "red";
+mistakeStatus.style.fontWeight ='bolder';
 var  lifeTime=10;
 
 var win=false;
@@ -66,7 +67,7 @@ function startGame() {
 
 function endGame(params) {
      if (win == true) {
-        mistakeStatus.style.backgroundColor="green";
+        mistakeStatus.style.color="green";
         scoreBoard.textContent = `Number of guesses: ${10-lifeTime}`;
         mistakeStatus.textContent="Your Win!";
         runStatus.textContent =null;
