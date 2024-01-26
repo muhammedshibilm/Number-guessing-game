@@ -26,7 +26,9 @@ var win = false;
 function rainbowGif() {
     let img = document.createElement("img")
     img.setAttribute("src", "./rainbow.gif")
+    img.style.pointerEvents ="none";
     document.body.appendChild(img)
+    
 }
 // mistake status function
 function  mistakes(value,check) {
