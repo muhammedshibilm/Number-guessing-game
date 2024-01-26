@@ -24,10 +24,10 @@ var win = false;
 
 //  ribbon falling ribbon 
 function rainbowGif() {
-    let img = document.createElement("img")
-    img.setAttribute("src", "./rainbow.gif")
-    img.style.pointerEvents ="none";
-    document.body.appendChild(img)
+    let img = document.createElement("img");
+    img.setAttribute("src", "./rainbow.gif");
+    document.body.appendChild(img);
+     img.style.pointerEvents ="none";
     
 }
 // mistake status function
